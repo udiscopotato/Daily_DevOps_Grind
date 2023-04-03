@@ -1,0 +1,11 @@
+Task requirements:
+	Using ansible 	
+	setup wordpress and mysql docker container on host.
+
+
+My Plan:
+	TODO:
+
+	1. install ansible on controller.
+	2. configure host connectiviy and check it using ping (ad-hoc)
+	3. 
