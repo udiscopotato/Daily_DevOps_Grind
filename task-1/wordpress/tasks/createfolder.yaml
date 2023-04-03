@@ -1,0 +1,7 @@
+---
+- name: "creating folder for docker volume"
+  become: true
+  file:
+    path: /home/ubuntu/site
+    state: directory
+    mode: '0775'

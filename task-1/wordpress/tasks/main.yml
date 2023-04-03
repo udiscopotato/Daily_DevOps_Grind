@@ -1,0 +1,9 @@
+---
+# tasks file for wordpress
+- import_tasks: update.yaml
+- import_tasks: installdocker.yaml
+- import_tasks: createfolder.yaml
+- import_tasks: copy-files.yaml
+- import_tasks: installdocker-compose.yaml
+- import_tasks: runcompose.yaml
+#- import_tasks: restartdb.yaml

@@ -1,0 +1,5 @@
+---
+- name: Executing my First role
+  hosts: host1
+  roles:
+   - wordpress

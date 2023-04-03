@@ -1,0 +1,6 @@
+---
+- name: "compose up our wordpress and mysql"
+  become: true
+  shell:
+    cmd: "docker-compose up -d"
+    chdir: /home/ubuntu/site/

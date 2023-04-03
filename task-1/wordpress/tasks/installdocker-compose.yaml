@@ -1,0 +1,7 @@
+---
+- name: "install docker compose"
+  become: true
+  apt: 
+    name: docker-compose
+    state: present
+

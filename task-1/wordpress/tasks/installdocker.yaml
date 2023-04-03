@@ -1,0 +1,6 @@
+---
+- name: "install docker"
+  become: true
+  apt:
+    name: docker.io
+    state: latest

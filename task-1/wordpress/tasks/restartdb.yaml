@@ -1,0 +1,6 @@
+---
+- name: "start mysql stopped container"
+  become: true
+  docker_container:
+        name: site_mariadb_1
+        state: started

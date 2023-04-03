@@ -1,0 +1,6 @@
+---
+- name: "copying compose file"
+  become: true
+  copy:
+    src: files/compose.yaml
+    dest: /home/ubuntu/site/
