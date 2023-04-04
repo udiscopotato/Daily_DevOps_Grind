@@ -1,0 +1,34 @@
+---
+- name: "install and run wordpress in remote host"
+  hosts: host1
+  become: true
+  tasks:
+    - name: "updating cache"
+      apt:
+        update_cache: yes
+
+    - name: "install docker"
+      apt:
+        name: docker.io
+        state: latest
+
+    - name: "install docker-compose"
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: "create folder"
+      file:
+        path: /home/ubuntu/site
+        state: directory
+        mode: '0775'
+
+    - name: "copy compose file"
+      copy:
+        src: compose.yaml
+        dest: /home/ubuntu/site/
+
+    - name: "run compose up"
+      shell:
+        cmd: "docker-compose up -d"
+        chdir: /home/ubuntu/site/
