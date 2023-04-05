@@ -1,0 +1,23 @@
+---
+services:
+  mariadb:
+    build: ./maria
+    restart: always
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    networks:
+      - mynet
+
+  wordpress:
+    build: ./word
+    volumes:
+      - ./wordpress:/var/www/html
+    networks:
+      - mynet
+    ports:
+      - 3000:80
+    depends_on:
+      - mariadb
+networks:
+  mynet:
+

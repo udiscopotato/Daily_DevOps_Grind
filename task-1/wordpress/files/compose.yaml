@@ -18,6 +18,7 @@ services:
 
   mariadb:
     image: mariadb:latest
+    restart: always
     volumes:
       - ./mysql:/var/lib/mysql
     networks:

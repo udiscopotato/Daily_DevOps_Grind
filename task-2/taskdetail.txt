@@ -1,3 +1,0 @@
-objective:
-	Using docker compose run multiple docker files to build 
-	     & to create containers
