@@ -1,0 +1,7 @@
+A=$1
+B=$2
+
+expr $A + $B    #this space between variable and operater is mendatory in case of expr 
+expr 10 + 2
+expr $A - $B
+
