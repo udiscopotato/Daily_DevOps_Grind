@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-dep
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: wordpress-database
+        image: mysql:5.7
+        args:
+          - "--ignore-db-dir=lost+found"
+        envFrom:
+          - secretRef:
+              name: mysql-secrets
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+          - name: mysql-data
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-data
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mySql
+spec:
+  selector:
+    app: mysql 
+  ports:
+  - port: 3306
+    protocol: TCP
+
